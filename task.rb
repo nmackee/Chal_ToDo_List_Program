@@ -5,7 +5,7 @@ class Task
   @@count = 0
 
   def initialize(task_params)
-    @id = id = @@count += 1
+    @id = @@count += 1
     @title = task_params[:title]
     @content = task_params[:content]
   end

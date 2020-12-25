@@ -1,15 +1,22 @@
 class Register
-  attr_reader :input_title, :input_content, :task_params
+  attr_reader :task_params
 
   def initial_register_task
-    puts "----------------------"
-    puts "| TO-DO-LIST-Manager |"
-    puts "----------------------"
-    puts "【登録】"
-    puts "titleを入力してください"
-    input_title = gets.chomp
-    puts "contentを入力してください"
-    input_content = gets
+    puts <<~EOS
+           ----------------------
+           | TO-DO-LIST-Manager |
+           ----------------------
+           【登録】
+         EOS
+
+    while true
+      puts "titleを入力してください"
+      input_title = gets.chomp
+      puts "contentを入力してください"
+      input_content = gets
+
+      break if !input_title.empty? && !input_content.empty?
+    end
 
     @task_params = [{ title: input_title, content: input_content }]
   end
